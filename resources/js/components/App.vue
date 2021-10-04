@@ -13,7 +13,19 @@
                 </div>
             </div>
         </nav>
-        <div class="container mt-5">
+
+        <div class="card text-center mt-5" v-if="$route.path === '/'">
+            <div class="card-header">Featured</div>
+            <div class="card-body padding-y-10">
+                <h5 class="card-title">University manager</h5>
+                <p class="card-text">Internship project</p>
+            </div>
+            <div class="card-footer text-muted">
+                Prod. by Aleksey Kulikov
+            </div>
+        </div>
+
+        <div class="container mt-3" v-if="$route.path !== '/'">
             <router-view></router-view>
         </div>
     </main>
@@ -26,5 +38,7 @@
 </script>
 
 <style scoped>
-
+    .padding-y-10 {
+        padding: 15% 0 15% 0;
+    }
 </style>
