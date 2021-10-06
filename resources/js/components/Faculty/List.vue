@@ -55,8 +55,8 @@
             this.getFaculties()
         },
         methods:{
-            async getFaculties(){
-                await this.axios.get('/api/faculty').then(response=>{
+            getFaculties(){
+                this.axios.get('/api/faculty').then(response=>{
                     this.faculties = response.data
                 }).catch(error=>{
                     console.log(error)
