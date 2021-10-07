@@ -6,7 +6,6 @@ use App\Http\Requests\ScheduleRequest;
 use App\Models\Schedule;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ScheduleController extends Controller
@@ -107,9 +106,5 @@ class ScheduleController extends Controller
         return response()->json([
             'message' => 'Расписание успешно удалено',
         ]);
-    }
-
-    private function getForDataBaseSet() {
-
     }
 }

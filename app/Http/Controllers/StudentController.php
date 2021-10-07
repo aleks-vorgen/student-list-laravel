@@ -16,13 +16,6 @@ class StudentController extends Controller
     public function index()
     {
         $faculties = Faculty::all(['id', 'title']);
-        $students = Student::all([
-            'id',
-            'name',
-            'surname',
-            'faculty_id',
-            'course'
-        ]);
 
         $students = DB::table('students')
             ->leftJoin('faculties', 'students.faculty_id', '=', 'faculties.id')
