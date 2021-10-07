@@ -60,13 +60,15 @@
             this.getStudents()
         },
         methods:{
-            async getStudents(){
-                await this.axios.get('/api/student').then(response=>{
+            getStudents(){
+                this.axios.get('/api/student').then(response=>{
                     this.students = response.data.students
                     this.faculties = response.data.faculties
                 }).catch(error=>{
-                    console.log(error)
-                    this.students = []
+                    if(error.response.status === 500) {
+                        alert(error.response.statusText + ": Connection to database failed")
+                        return this.$router.push('/')
+                    }
                 })
             },
             deleteStudent(id){
